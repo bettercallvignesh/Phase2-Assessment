@@ -9,4 +9,5 @@ export class PaymentComponent {
   myfunction(){
     alert("Payment Succesful!");
   }
+ 
 }

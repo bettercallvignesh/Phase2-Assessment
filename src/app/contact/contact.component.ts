@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Reset } from '@ngrx/store-devtools/src/actions';
 
 @Component({
   selector: 'app-contact',
@@ -7,6 +8,6 @@ import { Component } from '@angular/core';
 })
 export class ContactComponent {
   myFunction(){
-    alert("Adding Succesful!");
+    alert("Adding Succesful!"); 
   }
 }

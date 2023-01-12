@@ -2,6 +2,7 @@ import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { ContactComponent } from './contact/contact.component';
+import { AuthGuard } from './login/auth-guard.service';
 import { LoginComponent } from './login/login.component';
 import { PagenotfoundpageComponent } from './pagenotfoundpage/pagenotfoundpage.component';
 import { PaymentComponent } from './payment/payment.component';
@@ -57,6 +58,12 @@ children:[
     }
 
   ]},*/ 
+  {
+    path:'veges',
+    component:VegesListComponent,
+    canActivate:[AuthGuard],
+    loadChildren:()=>import('../app/veges/veges.module').then(m=>m.VegesModule)
+   },
 
  {
   path:'**',component:PagenotfoundpageComponent

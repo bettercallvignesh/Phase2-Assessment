@@ -6,9 +6,10 @@ import { VegesListComponent } from "../veges-list/veges-list.component";
 
 
 
+
 const vegesRoutes: Routes = [
 
-  { path: 'veges', component: VegesListComponent},
+  { path: 'veges-add', component: VegesListComponent},
 
 ];
 

@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { UserComponent } from './user/user.component';
+
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { VegesAddComponent } from './veges-add/veges-add.component';
@@ -21,20 +21,24 @@ import { RouterModule } from '@angular/router';
 import { FilterPipe } from './shared/filter.pipe';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { ContactComponent } from './contact/contact.component';
-import { MaterialModule } from 'src/material-module/material.module';
+import { MaterialModule } from 'src/app/material-module/material.module';
 import { PaymentComponent } from './payment/payment.component';
+import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { EffectsModule } from '@ngrx/effects';
+import { AppEffects } from './app.effects';
 
 @NgModule({
   declarations: [
     AppComponent,
-    UserComponent,
+    
    LoginComponent,
    
-    VegesListComponent,
-    VegesAddComponent,
+    // VegesListComponent,
+    // VegesAddComponent,
     VegesShellComponent,
     GreetingComponent,
-    WelcomeComponent,
+    // WelcomeComponent,
     PagenotfoundpageComponent,
     FilterPipe,
     AboutUsComponent,
@@ -50,6 +54,9 @@ import { PaymentComponent } from './payment/payment.component';
     BrowserModule,
     ReactiveFormsModule,
     AppRoutingModule,
+    StoreModule.forRoot({}),
+    EffectsModule.forRoot([AppEffects]),
+    StoreDevtoolsModule.instrument(),
     HttpClientInMemoryWebApiModule.forRoot(InMemoryEventDbService),
   ],
   providers: [],

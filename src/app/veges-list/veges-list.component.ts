@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { VegetableService } from '../shared/vegetable.service';
 import { VegetableaddService } from '../shared/vegetableadd.service';
-
+import { Store } from '@ngrx/store';
+import * as VegetableActions from '../state/vegetable/vegetable.actions';
+import { State } from '../state/vegetable/vegetable.state';
 @Component({
   selector: 'app-veges-list',
   templateUrl: './veges-list.component.html',
@@ -12,9 +14,10 @@ export class VegesListComponent implements OnInit{
   public vegesList : any ;
   public filterCategory : any
   searchKey:string ="";
-  constructor(private api : VegetableService, private vegetableaddService : VegetableaddService) { }
+  constructor(private api : VegetableService, private vegetableaddService : VegetableaddService,private store:Store<State>) { }
   ngOnInit(): void {
- 
+    // this.href=this.router.url;
+    
     this.api.getVegetables()
     .subscribe(res=>{
       this.vegesList = res;
@@ -27,13 +30,18 @@ export class VegesListComponent implements OnInit{
       });
       console.log(this.vegesList)
     });
+    this.store.dispatch(VegetableActions.filterVegetablesSuccess({veges:this.vegesList}));
+
 
     this.vegetableaddService.search.subscribe((val:any)=>{
-      this.searchKey = val;
+       this.searchKey = val;
     })
+    
   }
   addtocart(item: any){
-    this.vegetableaddService.addtoCart(item);
+     this.vegetableaddService.addtoCart(item);
+     this.store.dispatch(VegetableActions.updateVegetableSuccess({item}));
+     
   }
   filter(category:string){
     this.filterCategory = this.vegesList
@@ -42,6 +50,7 @@ export class VegesListComponent implements OnInit{
         return a;
       }
     })
+    this.store.dispatch(VegetableActions.filterVegetablesSuccess({veges:this.filterCategory}));
   }
 
 

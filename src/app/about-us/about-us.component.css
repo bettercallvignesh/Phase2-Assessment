@@ -34,5 +34,9 @@ body {
   }
   .para2{
     text-align: center;
+    
    /*  background-image: url('../assets/images/img2.jpg'); */
   }  
+  .colr{
+    color: white;
+  }
