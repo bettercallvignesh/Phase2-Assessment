@@ -1,0 +1,67 @@
+<!-- <div class="navbar bg-primary shadow-sm">
+    <div class="navbar-brand align-item-center d-flex">
+        <i style ="font-size:40px;"  class="fas fa-shipping-fast">&nbsp; </i>
+            <strong>
+                Vegetables
+            </strong>&nbsp;
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="search veges">
+            </div>
+       <span class="fas fa-search search-icon"></span> 
+    </div> 
+    <button routerLink="/veges-add" class="btn btn-primary">
+        <i style="font-size: 30px;" class="fas fa-cart-plus"></i>
+<div style="font-size:10px;" class="badge bg-danger">{{totalItem}}</div>
+    </button> 
+</div> -->
+
+ 
+<div class="card-top container-fluid">
+    <div class="container d-flex">
+        <div class="item">
+            <a (click)="filter('')">
+                <img src="../assets/images/vegetables.jpg" alt="">
+                <h6 class="point">All Vegetables</h6>
+            </a>
+        </div>
+        <div class="item">
+            <a (click)="filter('dark-green')">
+                <img src="../assets/images/dark-green-leafy-vegetables.jpg" alt="">
+                <h6 class="point">Dark-Green Vegetables</h6>
+            </a>
+        </div>
+        <div class="item">
+            <a (click)="filter('red-orange')">
+                <img src="../assets/images/redorange.jpg" alt="">
+                <h6 class="point">Red and Orange Vegetables</h6>
+            </a>
+        </div>
+        <div class="item">
+            <a (click)="filter('starchy')">
+                <img style="width: 62px; margin-top: 5px;" src="../assets/images/starchy.jpg" alt="">
+                <h6 class="point">Starchy Vegetables</h6>
+            </a>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <!-- act as value on left | act as pipe on right -->
+        <ng-container *ngFor="let item of filterCategory | filter:searchKey:'name'">
+            <div class="card col-md-3">
+                <img src="{{item.imageUrl}}" alt="">
+                <h5 style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 100ch;">{{item.title}}</h5>
+                <p style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 100ch;">{{item.description}}</p>
+                
+                <p><strong>id:</strong> {{item.id}}</p>
+                <p><strong>name:</strong> {{item.name}}</p>
+                 <p><strong>Category:</strong> {{item.category}}</p> 
+                <p><strong>Price:</strong> ${{item.price}}</p>
+                 <button class="btn btn-primary" (click)="addtocart(item)">Add to cart</button> 
+            </div>
+        </ng-container>
+
+    </div>
+</div> 
+
