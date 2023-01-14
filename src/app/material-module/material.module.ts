@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { MatCardModule} from '@angular/material/card';
 import {MatSelectModule} from '@angular/material/select';
 import {MatTableModule} from '@angular/material/table';
@@ -7,11 +7,11 @@ import {MatInputModule} from '@angular/material/input';
 
 @NgModule({
   exports: [
-    MatFormFieldModule,
+     MatFormFieldModule,
     MatCardModule,
     MatSelectModule,
     MatTableModule,
-    MatInputModule, 
+    MatInputModule,
   ]
 })
 export class MaterialModule { }

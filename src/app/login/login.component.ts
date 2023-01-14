@@ -12,7 +12,7 @@ import * as VegetableActions from '../state/vegetable/vegetable.actions';
 })
 export class LoginComponent implements OnInit {
 pageTitle:string='Log In';
-  constructor(private authService:AuthService,private router:Router,private store:Store<State>) { }
+ constructor(private authService:AuthService,private router:Router) { } /*  ,private store:Store<State> */
 
   ngOnInit(): void {
   }

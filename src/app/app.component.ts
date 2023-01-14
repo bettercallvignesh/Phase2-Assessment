@@ -9,15 +9,16 @@ import { AuthService } from './login/auth.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Phase2Assessment';
+  title:string = 'Phase2Assessment';
 
-
+name:string="vignesh";
   @ViewChild(GreetingComponent)greetingc!:GreetingComponent;
   //how to access ref1 template reference variable in component
 
 
 
 pageTitle:string='Online Shopping';
+
 
 get isLoggedIn():boolean{
   //service to return the loggedInstatus ofthe user
@@ -50,36 +51,7 @@ constructor(private router:Router,private authservice:AuthService){}
     //you can route to some url
     this.authservice.logOut();
     this.router.navigate(['/welcome']);
-  }/* 
-  ngOnDestroy(): void {
-    console.log('menu destroyed');}
-
-
-    ngOnChanges():void{
-     console.log('menu component changes');
-    }
-
-    ngDoCheck(){
-      console.log('doCheck of menu');
-    }
-
-    ngAfterContentInit(){
-
-      console.log('menu content init');
-
-    }
-    ngAfterContentChecked(){
-      console.log('menu content checked');
-    }
-    ngAfterViewInit(){
-      console.log('menu view init');
-
-    }
-
-   ngAfterViewChecked(){
-    console.log('menu view checked');
-
-   } */
+  }
     greet():void{
     console.log(this.greetingc.displayMessage());
     this.pageTitle=this.greetingc.displayMessage();

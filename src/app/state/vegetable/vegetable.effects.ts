@@ -41,21 +41,7 @@ export class VegetableEffects {
         )
       );
   });
-
-//   createProduct$ = createEffect(() => {
-//     return this.actions$
-//       .pipe(
-//         ofType(VegetableActions.createProduct),
-//         concatMap(action =>
-//           this.productService.createProduct(action.product)
-//             .pipe(
-//               map(product => VegetableActions.createProductSuccess({ product })),
-//               catchError(error => of(ProductActions.createProductFailure({ error })))
-//             )
-//         )
-//       );
-//   });
-
+  
   deleteVegetable$ = createEffect(() => {
     return this.actions$
       .pipe(

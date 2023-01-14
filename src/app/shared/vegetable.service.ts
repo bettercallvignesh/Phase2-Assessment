@@ -1,16 +1,30 @@
 import { HttpClient, HttpErrorResponse, HttpHeaders } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { catchError, map, Observable, tap, throwError } from "rxjs";
+import { BehaviorSubject, catchError, map, Observable, tap, throwError } from "rxjs";
 import { IVegetable } from "../veges-list/veges";
 
 @Injectable({
     providedIn:'root'
 })
 export class VegetableService{
+  search: any;
  constructor(private http:HttpClient){}
 foundIndex:number=0;
 url="api/veges";
 veges:IVegetable[]=[];
+
+
+private selectedVegetableSource= new BehaviorSubject<IVegetable | null >(null);
+
+//conventionally you can put $ to the var if it is a Observable
+selectedVegetableChanges$=this.selectedVegetableSource.asObservable();
+
+
+
+
+
+
+
    getVegetables():Observable<IVegetable[]>{
         return this.http.get<IVegetable[]>(this.url).pipe(
             catchError((error: HttpErrorResponse) => {
@@ -64,10 +78,15 @@ veges:IVegetable[]=[];
             category:'dark-green',
             imageUrl:'../assets/images/Spinach-darkgreen.jpg',
             price:34,
-
+            quantity:4
     
         };
     
+      }
+      changeSelectedVegetable(selectedVegetable:IVegetable | null):void{
+    
+        this.selectedVegetableSource.next(selectedVegetable);
+      
       }
             //errorhandler which returns the Observable with errorMessage
             errorHandler=(err:any)=>{
@@ -90,6 +109,28 @@ veges:IVegetable[]=[];
            
            
              }
+             createVegetable(item:IVegetable):Observable<IVegetable>{
+    
+              const headers= new HttpHeaders({'Content-Type':'application/json'});
+          
+            
+                const newVegetable={...item,id:null};
+      
+                console.log(`in create method  ${this.url}`)
+                return     this.http.post<IVegetable>(this.url,newVegetable,{headers})
+                .pipe(
+                  tap(data=>{
+          
+                   console.log('in create new animal'+ JSON.stringify(data));
+                   //pushing the new data new Product to the products array
+                  //  this.animals.push(data);
+                  console.log(JSON.stringify(this.veges));
+          
+                  },
+                  catchError(this.errorHandler)
+                  )
+                )
+            }
       deleteVegetable(id:number):Observable<{}>{
         const headers= new HttpHeaders({'Content-Type':'application/json'});
     
@@ -101,11 +142,6 @@ veges:IVegetable[]=[];
           tap(data=>{
             console.log('deleted veg'+id);
            const foundIndex = this.veges.findIndex(item1=>item1.id===id);
-           //if product id is not found means index returned will be -1
-        /*    if(foundIndex > -1)
-           this.products.splice(foundIndex,1); */
-    
-    
           },
           catchError(this.errorHandler))
     
@@ -121,18 +157,10 @@ veges:IVegetable[]=[];
         return this.getVegetables().pipe(
           tap(()=>{console.log('fetch item'+id);
            this.foundIndex =this.veges.findIndex(item1=>item1.id ==id);
-          /* if(this.foundIndex > -1){
-            this.products[this.foundIndex];
-              } */
           }),
           map(()=>this.veges[this.foundIndex]),
           catchError(this.errorHandler)
           );
-    
-    
-    
-    
-    
        }
        updateVegetable(item:IVegetable):Observable<IVegetable>{
         const headers= new HttpHeaders({'Content-Type':'application/json'});

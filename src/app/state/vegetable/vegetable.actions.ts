@@ -71,3 +71,7 @@ export const setCurrentVegetable = createAction(
     '[Vegetable] Delete Vegetable Fail',
     props<{ error: string }>()
   );
+
+export function createVegetable(arg0: { item: any; }): any {
+  throw new Error('Function not implemented.');
+}

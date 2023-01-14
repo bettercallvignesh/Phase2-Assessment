@@ -1,6 +1,9 @@
 import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AboutUsComponent } from './about-us/about-us.component';
+import { AdminAddComponent } from './admin-add/admin-add.component';
+import { AdminShellComponent } from './admin-shell/admin-shell.component';
+import { AdminComponent } from './admin/admin.component';
 import { ContactComponent } from './contact/contact.component';
 import { AuthGuard } from './login/auth-guard.service';
 import { LoginComponent } from './login/login.component';
@@ -13,15 +16,41 @@ import { WelcomeComponent } from './welcome/welcome.component';
 
 const routes: Routes = [
   {path:'',redirectTo:'welcome',pathMatch:'full'},
-/* {path:'login',component:LoginComponent,
+{path:'admin',component:AdminComponent,
 children:[
-  {path:'veges',component:VegesListComponent}
+  {path:'admin-add',component:AdminAddComponent}
 ]
-},  */
+}, 
 {
   path:'welcome',component:WelcomeComponent
 },
-{path:'login',component:LoginComponent},
+ {path:'login',component:LoginComponent},
+ {path:'admin',component:AdminComponent},
+  {
+  path:'admin',
+  component:AdminComponent,
+  canActivate:[AuthGuard],
+  loadChildren:()=>import('../app/admin/admin.module').then(m=>m.AdminModule)
+ },
+ 
+/* {
+  path: 'admin',
+
+  children: [
+    {
+      path: '',
+      component: AdminComponent
+    },
+    {
+        path: 'veges',
+        component: VegesListComponent
+    }
+  ]}, */
+
+//  {path:'admin-add',component:AdminAddComponent,
+// },
+{path:'admin-shell',component:AdminShellComponent,
+},
 {path:'veges',component:VegesListComponent,
 },
 {

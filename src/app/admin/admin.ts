@@ -5,6 +5,6 @@ export interface IVegetable{
     category:string;
     imageUrl:string;
     price:number;
-     quantity:number;
-  /*  total:number; */
+    quantity:number;
+
 }

@@ -1,8 +1,9 @@
-import { TestBed } from '@angular/core/testing';
+import {  TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
-
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 describe('AppComponent', () => {
+ 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [
@@ -11,6 +12,7 @@ describe('AppComponent', () => {
       declarations: [
         AppComponent
       ],
+      schemas:[NO_ERRORS_SCHEMA]
     }).compileComponents();
   });
 
@@ -26,10 +28,9 @@ describe('AppComponent', () => {
     expect(app.title).toEqual('Phase2Assessment');
   });
 
-  it('should render title', () => {
+  it(`should have as name 'name'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('Phase2Assessment app is running!');
-  });
+    const app = fixture.componentInstance;
+    expect(app.pageTitle).toEqual('Online Shopping');
+  }); 
 });

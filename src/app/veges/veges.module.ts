@@ -4,7 +4,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { WelcomeComponent } from '../welcome/welcome.component';
 import { VegesAddComponent } from '../veges-add/veges-add.component';
 import { VegesListComponent } from '../veges-list/veges-list.component';
-import { VegesShellComponent } from '../veges-shell/veges-shell.component';
 import { VegesRoutingModule } from './veges.routing.module';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
@@ -17,7 +16,8 @@ import { vegetableReducer } from '../state/vegetable/vegetable.reducer';
   declarations: [
     WelcomeComponent,
     VegesListComponent,
-    VegesAddComponent
+    VegesAddComponent,
+   
   ],
   imports:  [
     CommonModule,FormsModule,ReactiveFormsModule,VegesRoutingModule,

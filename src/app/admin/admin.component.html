@@ -1,3 +1,4 @@
+
 <div class="card-top container-fluid">
     <div class="container d-flex">
         <div class="item">
@@ -30,20 +31,25 @@
 <div class="container">
     <div class="row">
         <!-- act as value on left | act as pipe on right | filter:searchKey:'name'-->
-        <ng-container *ngFor="let item of filterCategory"> 
+        <ng-container *ngFor="let item of filterCategory">
             <div class="card col-md-3">
                 <img src="{{item.imageUrl}}" alt="">
                 <!-- <h5 style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 100ch;">{{item.title}}</h5>
-                <p style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 100ch;">{{item.description}}</p> -->
+                <p style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 100ch;">{{item.description}}</p>  -->
                 
                 <p><strong>id:</strong> {{item.id}}</p>
-                <p (click)="vegetableSelected(item)"><strong>name:</strong> {{item.name}}</p>
+                <p (click)="itemSelected(item)"><strong>name:</strong> {{item.name}}</p>
                  <p><strong>Category:</strong> {{item.category}}</p> 
                 <p><strong>Price:</strong> INR:{{item.price}}</p>
                  <button class="btn btn-primary" (click)="addtocart(item)" >Add to cart</button> 
             </div>
-         </ng-container> 
-
+        </ng-container>
+        <div class="card-footer">
+            <div class="col-md-4 text-right">
+              <button class="btn btn-primary" (click)="newVegetable()">Add Vegetable</button>
+              </div>
+          </div> 
     </div>
 </div> 
 
+<router-outlet></router-outlet>
