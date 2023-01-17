@@ -8,9 +8,9 @@ import { IVegetable } from "../veges-list/veges";
 })
 export class VegetableService{
   search: any;
- constructor(private http:HttpClient){}
+
 foundIndex:number=0;
-url="api/veges";
+public url="api/veges";
 veges:IVegetable[]=[];
 
 
@@ -21,16 +21,20 @@ selectedVegetableChanges$=this.selectedVegetableSource.asObservable();
 
 
 
-
+constructor(private http:HttpClient){}
 
 
 
    getVegetables():Observable<IVegetable[]>{
         return this.http.get<IVegetable[]>(this.url).pipe(
-            catchError((error: HttpErrorResponse) => {
+          tap(data=>{console.log(data);
+            //we are assigning data to this.products
+            this.veges=data;
+         /*    catchError((error: HttpErrorResponse) => {
               console.error(error);
-              return throwError(error);
-            })
+              return throwError(error); */
+            }),
+            catchError(this.errorHandler)
           );
 
 

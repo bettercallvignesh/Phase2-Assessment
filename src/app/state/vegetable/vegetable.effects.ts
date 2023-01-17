@@ -40,6 +40,7 @@ export class VegetableEffects {
             )
         )
       );
+      
   });
   
   deleteVegetable$ = createEffect(() => {
@@ -51,6 +52,20 @@ export class VegetableEffects {
             map(() => VegetableActions.deleteVegetableSuccess({ itemId: action.itemId })),
             catchError(error => of(VegetableActions.deleteVegetableFailure({ error })))
           )
+        )
+      );
+
+  });
+  createVegetable$ = createEffect(() => {
+    return this.actions$
+      .pipe(
+        ofType(VegetableActions.createVegetable),
+        concatMap(action =>
+          this.vegetableService.createVegetable(action.item)
+            .pipe(
+              map(item => VegetableActions.createVegetablesSuccess({ item })),
+              catchError(error => of(VegetableActions.createVegetablesFailure({ error })))
+            )
         )
       );
   });

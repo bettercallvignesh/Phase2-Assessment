@@ -87,7 +87,20 @@ export const vegetableReducer = createReducer<VegetableState>(
   }), */
 
 
-
+  on(VegetableActions.createVegetablesSuccess, (state, action): VegetableState => {
+    return {
+      ...state,
+      veges: [...state.veges, action.item],
+      currentVegetableId: action.item.id,
+      error: ''
+    };
+  }),
+  on(VegetableActions.createVegetablesFailure, (state, action): VegetableState => {
+    return {
+      ...state,
+      error: action.error
+    };
+  }),
 
 
 

@@ -22,7 +22,7 @@ export class AdminAddComponent implements OnInit{
 
   pageTitle='Edit Vegetable';
   errorMessage='';
-  item$!: Observable<IVegetable | null | undefined>;
+  item$!: Observable<any>;
   addVegetable!: FormGroup;
   item!:IVegetable| null | undefined;
   sub!:Subscription;
@@ -42,7 +42,7 @@ export class AdminAddComponent implements OnInit{
     category:{
       required:'Category is required'
     },
-    image:{
+    imageUrl:{
       required:'Image is required'
     },
     price:{
@@ -60,11 +60,11 @@ export class AdminAddComponent implements OnInit{
  ngOnInit() {
   console.log('in init of vegetable add ,creating form')
   this.addVegetable = this.formBuilder.group({
-    id: [],
+    id: [''],
     name: ['',[ Validators.required,Validators.minLength(3),Validators.maxLength(10)]],
     category:[[Validators.required]],
-    image:['',[Validators.required]],
-    price:[30,[Validators.required]],
+    imageUrl:['',[Validators.required]],
+    price:[[Validators.required]],
     quantity:[2,[Validators.required]]
 
   });
@@ -79,10 +79,12 @@ export class AdminAddComponent implements OnInit{
 
 //  this.sub=this.vegetableService.selectedVegetableChanges$.subscribe(selProduct=>this.displayVegetable(selProduct));
 
-      // this.item$ = this.store.select(getCurrentVegetable)
-      //    .pipe(
-      //     tap((currentVegetable) => this.displayVegetable(currentVegetable))
-      //   );
+      this.item$ = this.store.select(getCurrentVegetable)
+         .pipe(
+          tap((currentVegetable:any) => {
+            console.log("hello")
+          })
+        );
   this.item$.subscribe(resp=>this.item=resp);
   console.log('selected current product in ng onit add product ',this.item);
       
@@ -106,8 +108,8 @@ get name(){
   return this.addVegetable.get("name");
   }
 
-get image(){
-  return this.addVegetable.get("image");
+get imageUrl(){
+  return this.addVegetable.get("imageUrl");
   }
 get category(){
     return this.addVegetable.get("category");
@@ -122,6 +124,7 @@ get price(){
 
  displayVegetable(itemParam:IVegetable ):void{
   console.log(this.item,'in display product of product add component ');
+  console.log(itemParam);
  this.item = itemParam;
  if(this.item){
 

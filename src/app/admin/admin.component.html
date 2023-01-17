@@ -30,18 +30,17 @@
 
 <div class="container">
     <div class="row">
-        <!-- act as value on left | act as pipe on right | filter:searchKey:'name'-->
+        
         <ng-container *ngFor="let item of filterCategory">
             <div class="card col-md-3">
                 <img src="{{item.imageUrl}}" alt="">
-                <!-- <h5 style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 100ch;">{{item.title}}</h5>
-                <p style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 100ch;">{{item.description}}</p>  -->
+               
                 
-                <p><strong>id:</strong> {{item.id}}</p>
-                <p (click)="itemSelected(item)"><strong>name:</strong> {{item.name}}</p>
-                 <p><strong>Category:</strong> {{item.category}}</p> 
+                <!-- <p><strong>id:</strong> {{item.id}}</p> -->
+                <p class="mou" (click)="itemSelected(item)"><strong>name:</strong> {{item.name}}</p>
+                <!--  <p><strong>Category:</strong>{{item.category}}</p>  -->
                 <p><strong>Price:</strong> INR:{{item.price}}</p>
-                 <button class="btn btn-primary" (click)="addtocart(item)" >Add to cart</button> 
+               <!--   <button class="btn btn-primary" (click)="addtocart(item)" >Add to cart</button>  -->
             </div>
         </ng-container>
         <div class="card-footer">
@@ -52,4 +51,27 @@
     </div>
 </div> 
 
+<!-- 
+ <!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+  </head>
+  <body>
+    <h1>Hello, world!</h1>
+  </body>
+</html> -->
+<!-- <button class="btn btn-primary" routerLink="/veges-add">Add Vegetable</button> -->
+
+
+<!-- <img src="{{item.imageUrl}}" alt="">
+               
+               <div ngFor="let item of filterCategory">
+                <p><strong>id:</strong> {{item.id}}</p>
+                <p (click)="itemSelected(item)"><strong>name:</strong> {{item.name}}</p>
+                 <p><strong>Category:</strong> {{item.category}}</p> 
+                <p><strong>Price:</strong> INR:{{item.price}}</p>
+                 <button class="btn btn-primary" (click)="addtocart(item)" >Add to cart</button> </div> -->
 <router-outlet></router-outlet>

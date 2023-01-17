@@ -7,7 +7,7 @@ import * as AppState from '../../state/app.state';
 
 
 export interface State extends AppState.State {
-  products: VegetableState;
+  veges: VegetableState;
 }
 export interface VegetableState{
   currentVegetableId:number | null;

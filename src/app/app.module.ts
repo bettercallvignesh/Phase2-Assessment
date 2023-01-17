@@ -31,6 +31,8 @@ import { AdminComponent } from './admin/admin.component';
 import { AdminAddComponent } from './admin-add/admin-add.component';
 import { RouterModule } from '@angular/router';
 import { AdminShellComponent } from './admin-shell/admin-shell.component';
+import { vegetableReducer } from './state/vegetable/vegetable.reducer';
+import { VegetableEffects } from './state/vegetable/vegetable.effects';
 
 
 @NgModule({
@@ -63,9 +65,9 @@ import { AdminShellComponent } from './admin-shell/admin-shell.component';
     BrowserModule,
     ReactiveFormsModule,
     AppRoutingModule,
- 
+    StoreModule.forFeature('veges',vegetableReducer),
     StoreModule.forRoot({}),
-    EffectsModule.forRoot([AppEffects]),
+    EffectsModule.forRoot([AppEffects,VegetableEffects]),
     StoreDevtoolsModule.instrument(),
     HttpClientInMemoryWebApiModule.forRoot(InMemoryEventDbService),
   ],

@@ -10,6 +10,9 @@
     border-radius: 25rem;
 
 }
+.mou{
+    cursor: pointer;
+}
 .item img {
     width: 64px;
 }

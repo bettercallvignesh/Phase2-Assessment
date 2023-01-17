@@ -21,8 +21,8 @@ export class AdminComponent implements OnInit{
   sub!:Subscription;
   selectedVegetable!:IVegetable |null;
   public vegesList : any ;
-  public filterCategory : any;
-  // filterCategory:IVegetable[]=[];
+ /*  public filterCategory : any; */
+  filterCategory:IVegetable[]=[];
   item!:IVegetable;
   searchKey:string ="";
   href:string='';
@@ -52,7 +52,7 @@ public  api: any;
     this.selectedVegetable$ = this.store.select(getCurrentVegetable);
 
 
-    this.api.getVegetables()
+    this.vegetableService.getVegetables()
     .subscribe((res: IVegetable[])=>{
       this.vegesList = res;
       this.filterCategory = res;
@@ -67,9 +67,9 @@ public  api: any;
      this.store.dispatch(VegetableActions.filterVegetablesSuccess({veges:this.vegesList}));
 
 
-    this.vegetableService.search.subscribe((val:any)=>{
+/*     this.vegetableService.search.subscribe((val:any)=>{
        this.searchKey = val;
-    })
+    }) */
 
   }
 
@@ -97,13 +97,17 @@ public  api: any;
   newVegetable():void{
     console.log('in new product');
    
- // this.vegetableService.changeSelectedVegetable(this.vegetableService.newVegetable());
+// this.vegetableService.changeSelectedVegetable(this.vegetableService.newVegetable());
  /*     console.log('back to newProduct from service '); */
      this.store.dispatch(VegetableActions.initializeCurrentVegetable());
      this.router.navigate([this.href,'admin-add']);
    }
    itemSelected(item:IVegetable):void{
-    // this.animalService.changeSelectedAnimal(animal);
+   //  this.vegetableService.changeSelectedVegetable(item);
     this.store.dispatch(VegetableActions.setCurrentVegetable({currentVegetableId:item.id}));
    }
+   getVegetableById(id:number):IVegetable{
+    this.vegetableService.getVegetableById(id).subscribe(resp=>this.item=resp);
+    return this.item;
+  }
 }
