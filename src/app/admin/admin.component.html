@@ -40,6 +40,9 @@
                 <p class="mou" (click)="itemSelected(item)"><strong>name:</strong> {{item.name}}</p>
                 <!--  <p><strong>Category:</strong>{{item.category}}</p>  -->
                 <p><strong>Price:</strong> INR:{{item.price}}</p>
+                <p> <button class="btn btn-warning" (click)="itemSelected(item)"> edit</button></p>
+                <button (click)="deleteVegetable(item)" class="btn btn-danger" type="button">Delete Product</button>
+              <!--   <button    class="btn btn-primary" type="button">Edit Product</button> -->
                <!--   <button class="btn btn-primary" (click)="addtocart(item)" >Add to cart</button>  -->
             </div>
         </ng-container>
@@ -50,28 +53,4 @@
           </div> 
     </div>
 </div> 
-
-<!-- 
- <!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap demo</title>
-  </head>
-  <body>
-    <h1>Hello, world!</h1>
-  </body>
-</html> -->
-<!-- <button class="btn btn-primary" routerLink="/veges-add">Add Vegetable</button> -->
-
-
-<!-- <img src="{{item.imageUrl}}" alt="">
-               
-               <div ngFor="let item of filterCategory">
-                <p><strong>id:</strong> {{item.id}}</p>
-                <p (click)="itemSelected(item)"><strong>name:</strong> {{item.name}}</p>
-                 <p><strong>Category:</strong> {{item.category}}</p> 
-                <p><strong>Price:</strong> INR:{{item.price}}</p>
-                 <button class="btn btn-primary" (click)="addtocart(item)" >Add to cart</button> </div> -->
 <router-outlet></router-outlet>

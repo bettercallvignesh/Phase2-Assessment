@@ -39,33 +39,8 @@ constructor(private http:HttpClient){}
 
 
      }
-     /* changeSelectedProduct(selectedVegetable:IVegetable | null):void{
-    
-      this.selectedVegetableSource.next(selectedVegetable);
-    
-    }
-    
-      //errorhandler which returns the Observable with errorMessage
-      errorHandler=(err:any)=>{
-    
-       let errorMessage:string;
-       //a client side error or network error then ErrorEvent object will be thrown
-    
-       if(err.error instanceof ErrorEvent)
-         {
-    
-           errorMessage = `An error has occured ${err.error.message}`
-         }
-         else{
-    
-          errorMessage =  `Backend error code ${err.status} ${err.body.error}`;
-    
-         }
-         console.log(err);
-         return throwError(errorMessage);
-    
-    
-      } */
+
+
     
     
       // a method newProduct which acts like a constructor of creating a new Product
@@ -175,11 +150,11 @@ constructor(private http:HttpClient){}
         //logic to call http put method to update the item on the given url
         return this.http.put<IVegetable>(url,item, {headers}).pipe(
     
-        tap(()=>{console.log('update item'+item.id);
+        tap(()=>{/* console.log('update item'+item.id);
         const foundIndex =this.veges.findIndex(item1=>item1.id === item.id);
         if(foundIndex > -1){
           this.veges[foundIndex]=item;
-            }
+            } */
         }),
         map(()=>item),
         catchError(this.errorHandler)

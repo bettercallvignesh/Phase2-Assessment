@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { IVegetable } from '../veges-list/veges';
 import * as VegetableActions from '../state/vegetable/vegetable.actions';
 import { Store } from '@ngrx/store';
@@ -17,14 +17,15 @@ import { State } from '../state/app.state';
   templateUrl: './admin-add.component.html',
   styleUrls: ['./admin-add.component.css']
 })
-export class AdminAddComponent implements OnInit{
+export class AdminAddComponent implements OnInit,OnDestroy{
   // item!:IVegetable | null | undefined;
 
   pageTitle='Edit Vegetable';
   errorMessage='';
-  item$!: Observable<any>;
+ 
+  item$!: Observable<IVegetable | null | undefined>;
   addVegetable!: FormGroup;
-  item!:IVegetable| null | undefined;
+  item!:IVegetable| null|undefined ;
   sub!:Subscription;
   displayMessage: {[key:string]:string}={};
     private validationMessages!:{[key:string]:{[key:string]:string}};
@@ -57,6 +58,9 @@ export class AdminAddComponent implements OnInit{
     this.genericValidator=new GenericValidator(this.validationMessages);
 
  }
+ ngOnDestroy(): void {
+/*   this.sub.unsubscribe(); */
+}
  ngOnInit() {
   console.log('in init of vegetable add ,creating form')
   this.addVegetable = this.formBuilder.group({
@@ -81,9 +85,10 @@ export class AdminAddComponent implements OnInit{
 
       this.item$ = this.store.select(getCurrentVegetable)
          .pipe(
-          tap((currentVegetable:any) => {
-            console.log("hello")
-          })
+    // tap((currentVegetable:any) => {
+    //          console.log("hello")
+    //        })  
+           tap(currentVegetable=> this.displayVegetable(currentVegetable)) 
         );
   this.item$.subscribe(resp=>this.item=resp);
   console.log('selected current product in ng onit add product ',this.item);
@@ -120,10 +125,14 @@ get price(){
       get quantity(){
         return this.addVegetable.get("quantity");
           }   
+          blur():void{
+            this.displayMessage=this.genericValidator.processMessages(this.addVegetable);
           
+            }
+              
 
- displayVegetable(itemParam:IVegetable ):void{
-  console.log(this.item,'in display product of product add component ');
+ displayVegetable(itemParam:IVegetable | null | undefined):void{
+  console.log(this.item,'in display vegetable of vegetable add component ');
   console.log(itemParam);
  this.item = itemParam;
  if(this.item){

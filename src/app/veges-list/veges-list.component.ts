@@ -34,7 +34,7 @@ export class VegesListComponent implements OnInit{
       });
       console.log(this.vegesList)
     });
-     this.store.dispatch(VegetableActions.filterVegetablesSuccess({veges:this.vegesList}));
+   /*   this.store.dispatch(VegetableActions.filterVegetablesSuccess({veges:this.vegesList})); */
 
 
     this.vegetableaddService.search.subscribe((val:any)=>{

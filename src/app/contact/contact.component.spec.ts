@@ -26,4 +26,10 @@ describe('ContactComponent', () => {
     const el=fixture.debugElement.query(By.css('#name'));
     expect(el.nativeElement.getAttribute('type')).toEqual('text');
   });
+
+  it(`should have as title 'contact'`, () => {
+    const fixture = TestBed.createComponent(ContactComponent);
+    const app = fixture.componentInstance;
+    expect(app.name).toEqual('contact');
+  });
 });

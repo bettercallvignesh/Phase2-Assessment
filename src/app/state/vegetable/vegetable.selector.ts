@@ -26,6 +26,7 @@ export const getCurrentVegetable = createSelector(
         category:'',
         imageUrl:'',
         price:0,
+        quantity:0
    
         
       };

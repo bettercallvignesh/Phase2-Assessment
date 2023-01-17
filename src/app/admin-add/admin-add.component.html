@@ -9,7 +9,7 @@
      <label for="name">Vegetable Name:</label>
      <input type="text" formControlName="name"
      placeholder="Vegetable name"
-    
+     (blur)="blur()"
      name="name" class="form-control" id="name">
    </div>
 
@@ -18,7 +18,7 @@
      <label for="category">
        Category
      </label>
-     <select  name="category" class='form-control'
+     <select  (blur)="blur()" name="category" class='form-control'
      formControlName="category" id="category">
        <option selected value="Dark-Green">Dark-Green Vegetables</option>
        <option value="Red-Orange">Red-Orange Vegetables</option>
@@ -29,7 +29,7 @@
 
    <div class="form-group">
      <label for="imageUrl">Image:</label>
-     <input  type="text" formControlName="imageUrl"
+     <input (blur)="blur()" type="text" formControlName="imageUrl"
      placeholder="veges image" name="imageUrl" class="form-control" id="imageUrl">
    </div>
 
@@ -37,11 +37,12 @@
 
    <div class="form-group">
      <label for="price">Price:</label>
-     <input  type="number" 
+     <input (blur)="blur()" type="number" 
      formControlName="price" placeholder="Price" name="price" class="form-control" id="price" >
    </div>
 
    <button (click)="deleteVegetable(item)" class="btn btn-danger" type="button">Delete Product</button>
+<!--    <button (click)="updateVegetable" class="btn btn-danger" type="button">Update Product</button> -->
    <button [disabled]='!addVegetable.valid ||!addVegetable.dirty' class="btn btn-success">Save Product</button>
 </form>
  </div>

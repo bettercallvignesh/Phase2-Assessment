@@ -7,7 +7,9 @@ import { Reset } from '@ngrx/store-devtools/src/actions';
   styleUrls: ['./contact.component.css']
 })
 export class ContactComponent {
+name:string='contact';
   myFunction(){
     alert("Adding Succesful!"); 
   }
+ 
 }

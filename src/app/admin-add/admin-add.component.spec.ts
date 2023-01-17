@@ -1,6 +1,8 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ReactiveFormsModule } from '@angular/forms';
 import { By } from '@angular/platform-browser';
+import { StoreModule } from '@ngrx/store';
 
 import { AdminAddComponent } from './admin-add.component';
 
@@ -11,7 +13,9 @@ describe('AdminAddComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ AdminAddComponent ],
-      imports:[ReactiveFormsModule]
+      imports:[ReactiveFormsModule,
+      StoreModule.forRoot({}),HttpClientTestingModule]
+
     })
     .compileComponents();
 

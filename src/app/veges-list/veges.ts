@@ -1,4 +1,7 @@
+import { AdminAddComponent } from "../admin-add/admin-add.component";
+
 export interface IVegetable{
+   
 
     id:number;
     name:string;

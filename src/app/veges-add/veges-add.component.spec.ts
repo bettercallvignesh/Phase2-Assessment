@@ -4,6 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterTestingModule } from '@angular/router/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { VegesAddComponent } from './veges-add.component';
+import { StoreModule } from '@ngrx/store';
 
 describe('VegesAddComponent', () => {
   let component: VegesAddComponent;
@@ -14,7 +15,7 @@ describe('VegesAddComponent', () => {
       imports: [
         RouterTestingModule,
         ReactiveFormsModule,
-        FormsModule,HttpClientTestingModule
+        FormsModule,HttpClientTestingModule,StoreModule.forRoot({})
   
       ],
       declarations: [ VegesAddComponent ]

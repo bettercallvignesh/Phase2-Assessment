@@ -12,6 +12,6 @@ import { IVegetable } from '../veges-list/veges';
   styleUrls: ['./about-us.component.css']
 })
 export class AboutUsComponent{
-
+title:string='About-Us';
 
 }
