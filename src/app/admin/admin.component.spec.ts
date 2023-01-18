@@ -1,5 +1,7 @@
 import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/compiler';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
 import { StoreModule } from '@ngrx/store';
 
 
@@ -12,7 +14,8 @@ describe('AdminComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ AdminComponent ],
-      imports:[StoreModule.forRoot({}),HttpClientTestingModule]
+      imports:[StoreModule.forRoot({}),HttpClientTestingModule,RouterTestingModule]
+      
     })
     .compileComponents();
 

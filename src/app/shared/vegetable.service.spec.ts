@@ -95,12 +95,12 @@ afterEach(() => {
 
     const fn=spyOn(service, 'getVegetableById').and.returnValue(of(item));
 
-    service.getVegetableById(111).subscribe(res=>{response=res;expect(response).toEqual(item);});
+    service.getVegetableById(101).subscribe(res=>{response=res;expect(response).toEqual(item);});
 
    expect(fn).toHaveBeenCalled();
 
 });
-it('createAnimal() should post a vegetable and    return that new vegetable  as data',()=>{
+it('createVegetable() should post a vegetable and    return that new vegetable  as data',()=>{
 
 
     const item:IVegetable={

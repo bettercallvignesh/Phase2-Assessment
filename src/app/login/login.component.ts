@@ -31,7 +31,7 @@ pageTitle:string='Log In';
         this.router.navigateByUrl(this.authService.redirectToUrl);
       }
       else{
-        this.router.navigate(['veges']);
+        this.router.navigate(['admin']);
       }
 
 

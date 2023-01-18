@@ -33,6 +33,7 @@ import { RouterModule } from '@angular/router';
 import { AdminShellComponent } from './admin-shell/admin-shell.component';
 import { vegetableReducer } from './state/vegetable/vegetable.reducer';
 import { VegetableEffects } from './state/vegetable/vegetable.effects';
+import { MatFormField } from '@angular/material/form-field';
 
 
 @NgModule({
@@ -61,6 +62,7 @@ import { VegetableEffects } from './state/vegetable/vegetable.effects';
     RouterModule,
    AppRoutingModule,
    MaterialModule,
+  
    BrowserAnimationsModule,
     BrowserModule,
     ReactiveFormsModule,
@@ -72,7 +74,10 @@ import { VegetableEffects } from './state/vegetable/vegetable.effects';
     HttpClientInMemoryWebApiModule.forRoot(InMemoryEventDbService),
   ],
   providers: [],
-  bootstrap: [AppComponent]
-
+  bootstrap: [AppComponent],
+/*   schemas: [
+    CUSTOM_ELEMENTS_SCHEMA,NO_ERRORS_SCHEMA
+  ]
+ */
 })
 export class AppModule { }

@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./admin-shell.component.css']
 })
 export class AdminShellComponent {
-
+  title:string="admin1"
 }

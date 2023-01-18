@@ -14,9 +14,11 @@ import { Observable } from 'rxjs';
   styleUrls: ['./veges-list.component.css']
 })
 export class VegesListComponent implements OnInit{
+  title:string="list";
   selectedVegetable$!:Observable<any>;
   public vegesList : any ;
-  public filterCategory : any
+  public filterCategory : any;
+  // itemquantity:number=1;
   searchKey:string ="";
   @Output() OnVegetableSelection:EventEmitter<IVegetable>=new EventEmitter<IVegetable>();
 
@@ -72,7 +74,14 @@ export class VegesListComponent implements OnInit{
      this.store.dispatch(VegetableActions.filterVegetablesSuccess({veges:this.filterCategory}));
   }
 
-
+/*   Quantity(value:string){
+    if(this.itemquantity < 9 && value=="max"){
+      this.itemquantity +=1;
+    }else if(this.itemquantity>1 && value=="min"){
+      this.itemquantity -=1;
+    }
+          }
+        */
 
 }
 

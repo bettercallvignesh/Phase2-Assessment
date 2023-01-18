@@ -8,6 +8,7 @@ import { VegetableaddService } from '../shared/vegetableadd.service';
   styleUrls: ['./veges-shell.component.css']
 })
 export class VegesShellComponent implements OnInit{
+  title:string="veges";
   public totalItem : number = 0;
   public searchTerm !: string;
   constructor(private vegetableaddService : VegetableaddService) { }

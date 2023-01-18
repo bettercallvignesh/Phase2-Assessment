@@ -6,6 +6,7 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./greeting.component.css']
 })
 export class GreetingComponent {
+  title1:string='greeting';
   @Input()  messageText:string='Welcome'
    constructor(){console.log('greeting constructed') }
 

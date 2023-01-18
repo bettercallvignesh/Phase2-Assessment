@@ -20,4 +20,9 @@ describe('PagenotfoundpageComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+  it(`should have as title 'pagenot'`, () => {
+    const fixture = TestBed.createComponent(PagenotfoundpageComponent);
+    const app = fixture.componentInstance;
+    expect(app.name).toEqual('pagenot');
+  });
 });

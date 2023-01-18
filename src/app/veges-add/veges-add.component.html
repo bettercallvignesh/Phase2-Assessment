@@ -6,8 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body>
-    
+<body>   
 <ng-container *ngIf="veges.length !=0">
 
     <div class="container">
@@ -21,7 +20,7 @@
                             <th>Vegetable Name</th>
                             <th>Vegetable Category</th>
                             <th>Vegetable Image</th>
-                           <!--  <th>Quantity</th> -->
+                            <th>Quantity</th>
                             <th>Price</th>
                           
                             <th>
@@ -38,44 +37,42 @@
         <td style="width: 12%;">{{item.category}}</td>
        
         <td><img style="width: 120px;" src="{{item.imageUrl}}" alt=""></td>
-        <!-- <td style="width: 25%;">{{item.quanity}}</td> -->
-      <!--   <td style="width: 12%;">{{item.quantity}}</td> -->
+
+  <!--       <td>
+          <div class="veges">
+                <div class="row no-gutters">
+                    <div class="col">
+                        <button >
+                            <i class="fas fa-plus"></i>
+                        </button>
+                    </div>
+                    <div class="col ml-4 mr-2">
+                        {{item.quantity}}
+                    </div>
+                    <div class="col">
+                        <button >
+                            <i class="fas fa-minus"></i>
+                        </button>
+                    </div>
+                </div>
+            </div> </td> -->
+
+             <!-- <td>    
+<button (click)="incrementQuantity(item.id,item.quantity,item)" class="btn btn-dark"><strong>+</strong></button>
+<input class="inputbox" text="text" disabled value="{{itemquantity}}">
+<button  (click)="decreaseQuantity(item.id,item.quantity,item)" class="btn btn-dark"><strong>-</strong></button>
+ </td>
+    -->
     
-<!-- <td>
-    <div class="items">
-        <div class="row no-gutters">
-            <div class="col">
-                <button (click)="incrementQuantity(item)" class="btn btn-primary btn-sm">
-                    <i class="fas fa-plus"></i>
-                </button>
-            </div>
-            <div class="col ml-4 mr-2">
-                {{item.quantity}}
-            </div>
-            <div class="col">
-                <button class="btn btn-primary btn-sm">
-                    <i class="fas fa-minus"></i>
-                </button>
-            </div>
-        </div>
-        
-    </div>
-</td> -->
 
 
 
 
-        <!-- <td><input type="number" style="width: 50%;" [(ngModel)]="item.quantity"></td> -->
+
+         <td><input type="number" style="width: 50%;" [(ngModel)]="item.quantity"></td> 
       
    <td style="width: 12%;">{{item.price}}</td>  
-        <!--<td>
-    <div class="button-container">
-        <button class="cart-qty-plus" type="button" value="+">+</button>
-        <input type="text" name="qty" min="0" class="qty form contril" value="0">
-        <button class="car-qty-minus" type="button" value="-">-</button>
-    </div>
-</td> -->
-<!-- <td><input type="text" value="72" class="price form control" disabled> </td> -->
+ 
     <td style="width: 12%;">{{item.total}}</td>
         <td><button (click)="removeItem(item)" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button> </td>
     </tr>

@@ -40,6 +40,11 @@
                 <p (click)="vegetableSelected(item)"><strong>name:</strong> {{item.name}}</p>
                  <p><strong>Category:</strong> {{item.category}}</p> 
                 <p><strong>Price:</strong> INR:{{item.price}}</p>
+              <!--   <td>    
+                    <button (click)="Quantity('max')" class="btn btn-dark"><strong>+</strong></button>
+                    <input class="inputbox" text="text" disabled value="{{itemquantity}}">
+                    <button (click)="Quantity('min')" class="btn btn-dark"><strong>-</strong></button>
+                     </td> -->
                  <button class="btn btn-primary" (click)="addtocart(item)" >Add to cart</button> 
             </div>
          </ng-container> 

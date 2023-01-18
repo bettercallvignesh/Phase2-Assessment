@@ -80,6 +80,7 @@ export class InMemoryEventDbService implements InMemoryDbService{
             "imageUrl":"../assets/images/sweatpotato.jpg",
            "price":66,
            "quantity":4
+           
           
         }];
 

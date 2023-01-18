@@ -19,7 +19,7 @@
        Category
      </label>
      <select  (blur)="blur()" name="category" class='form-control'
-     formControlName="category" id="category">
+     formControlName="category" id="category" type="category">
        <option selected value="Dark-Green">Dark-Green Vegetables</option>
        <option value="Red-Orange">Red-Orange Vegetables</option>
        <option value="starchy">Starchy</option>
@@ -41,7 +41,7 @@
      formControlName="price" placeholder="Price" name="price" class="form-control" id="price" >
    </div>
 
-   <button (click)="deleteVegetable(item)" class="btn btn-danger" type="button">Delete Product</button>
+<!--    <button (click)="deleteVegetable(item)" class="btn btn-danger" type="button">Delete Product</button> -->
 <!--    <button (click)="updateVegetable" class="btn btn-danger" type="button">Update Product</button> -->
    <button [disabled]='!addVegetable.valid ||!addVegetable.dirty' class="btn btn-success">Save Product</button>
 </form>

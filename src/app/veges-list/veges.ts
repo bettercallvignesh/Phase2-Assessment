@@ -9,5 +9,5 @@ export interface IVegetable{
     imageUrl:string;
     price:number;
     quantity:number;
-  /*  total:number; */
+ /*   total:number;  */
 }

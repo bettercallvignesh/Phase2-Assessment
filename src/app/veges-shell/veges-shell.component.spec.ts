@@ -1,3 +1,4 @@
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { VegesShellComponent } from './veges-shell.component';
@@ -8,7 +9,8 @@ describe('VegesShellComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ VegesShellComponent ]
+      declarations: [ VegesShellComponent ],
+      schemas:[NO_ERRORS_SCHEMA]
     })
     .compileComponents();
 
@@ -19,5 +21,10 @@ describe('VegesShellComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+  it(`should have as title 'veges'`, () => {
+    const fixture = TestBed.createComponent(VegesShellComponent);
+    const app = fixture.componentInstance;
+    expect(app.title).toEqual('veges');
   });
 });

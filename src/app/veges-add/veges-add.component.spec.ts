@@ -5,6 +5,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { VegesAddComponent } from './veges-add.component';
 import { StoreModule } from '@ngrx/store';
+import { By } from '@angular/platform-browser';
 
 describe('VegesAddComponent', () => {
   let component: VegesAddComponent;
@@ -30,5 +31,10 @@ describe('VegesAddComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+  it(`should have as title 'add'`, () => {
+    const fixture = TestBed.createComponent(VegesAddComponent);
+    const app = fixture.componentInstance;
+    expect(app.title2).toEqual('add');
   });
 });

@@ -23,4 +23,9 @@ describe('VegesListComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+  it(`should have as title 'list'`, () => {
+    const fixture = TestBed.createComponent(VegesListComponent);
+    const app = fixture.componentInstance;
+    expect(app.title).toEqual('list');
+  });
 });

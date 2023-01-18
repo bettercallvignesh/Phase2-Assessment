@@ -58,6 +58,7 @@ constructor(private http:HttpClient){}
             imageUrl:'../assets/images/Spinach-darkgreen.jpg',
             price:34,
             quantity:4
+           
     
         };
     
