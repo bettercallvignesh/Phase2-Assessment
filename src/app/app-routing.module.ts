@@ -32,23 +32,6 @@ children:[
   canActivate:[AuthGuard],
   loadChildren:()=>import('../app/admin/admin.module').then(m=>m.AdminModule)
  },
- 
-/* {
-  path: 'admin',
-
-  children: [
-    {
-      path: '',
-      component: AdminComponent
-    },
-    {
-        path: 'veges',
-        component: VegesListComponent
-    }
-  ]}, */
-
-//  {path:'admin-add',component:AdminAddComponent,
-// },
 {path:'admin-shell',component:AdminShellComponent,
 },
 {path:'veges',component:VegesListComponent,
@@ -68,25 +51,7 @@ children:[
 },
 {
   path:'payment',component:PaymentComponent
-},
-
-/* {path:'', redirectTo:'veges',pathMatch:'full'},
-{path:'veges', component: VegesListComponent},
-{path:'veges-add', component: VegesAddComponent}, */
- /* {
-  path: 'welcome',
-
-  children: [
-    {
-      path: '',
-      component: VegesListComponent
-    },
-    {
-        path: 'veges-add',
-        component: VegesAddComponent
-    }
-
-  ]},*/ 
+}, 
   {
     path:'veges',
     component:VegesListComponent,
@@ -98,9 +63,6 @@ children:[
   path:'**',component:PagenotfoundpageComponent
 
 } 
-
-
-
 ];
 
 @NgModule({

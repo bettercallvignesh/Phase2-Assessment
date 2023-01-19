@@ -11,12 +11,10 @@ describe('PagenotfoundpageComponent', () => {
       declarations: [ PagenotfoundpageComponent ]
     })
     .compileComponents();
-
     fixture = TestBed.createComponent(PagenotfoundpageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
-
   it('should create', () => {
     expect(component).toBeTruthy();
   });

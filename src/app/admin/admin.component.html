@@ -34,16 +34,10 @@
         <ng-container *ngFor="let item of filterCategory">
             <div class="card col-md-3">
                 <img src="{{item.imageUrl}}" alt="">
-               
-                
-                <!-- <p><strong>id:</strong> {{item.id}}</p> -->
-                <p class="mou" (click)="itemSelected(item)"><strong>name:</strong> {{item.name}}</p>
-                <!--  <p><strong>Category:</strong>{{item.category}}</p>  -->
+                <p class="mou" (click)="itemSelected(item)"><strong>name:</strong> {{item.name}}</p>             
                 <p><strong>Price:</strong> INR:{{item.price}}</p>
                 <p> <button class="btn btn-warning" (click)="itemSelected(item)"> edit</button></p>
                 <button (click)="deleteVegetable(item)" class="btn btn-danger" type="button">Delete Product</button>
-              <!--   <button    class="btn btn-primary" type="button">Edit Product</button> -->
-               <!--   <button class="btn btn-primary" (click)="addtocart(item)" >Add to cart</button>  -->
             </div>
         </ng-container>
         <div class="card-footer">
@@ -53,4 +47,4 @@
           </div> 
     </div>
 </div> 
-  <router-outlet></router-outlet> 
+<router-outlet></router-outlet> 

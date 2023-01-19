@@ -7,52 +7,33 @@ import { IVegetable } from "../veges-list/veges";
     providedIn:'root'
 })
 export class VegetableService{
-  search: any;
-
+search: any;
 foundIndex:number=0;
 public url="api/veges";
 veges:IVegetable[]=[];
-
-
 private selectedVegetableSource= new BehaviorSubject<IVegetable | null >(null);
-
 //conventionally you can put $ to the var if it is a Observable
 selectedVegetableChanges$=this.selectedVegetableSource.asObservable();
-
-
-
 constructor(private http:HttpClient){}
-
-
-
    getVegetables():Observable<IVegetable[]>{
         return this.http.get<IVegetable[]>(this.url).pipe(
           tap(data=>{console.log(data);
-            //we are assigning data to this.products
+            //we are assigning data to this.vegetables
             this.veges=data;
-         /*    catchError((error: HttpErrorResponse) => {
-              console.error(error);
-              return throwError(error); */
             }),
             catchError(this.errorHandler)
           );
-
-
      }
-
-
-    
-    
-      // a method newProduct which acts like a constructor of creating a new Product
-      //what is name of the method -- newProduct
+      // a method newVegetable which acts like a constructor of creating a new Vegetable
+      //what is name of the method -- newVegetable
       //how many args --zero args
-      //return type IProduct
+      //return type IVegetable
     
       newVegetable():IVegetable{
-      //logic should focus on sending back a IProduct
+      //logic should focus on sending back a IVegetable
         return {
     
-             id:0,
+             id:100,
             name:'spinach',
             category:'dark-green',
             imageUrl:'../assets/images/Spinach-darkgreen.jpg',
@@ -124,14 +105,7 @@ constructor(private http:HttpClient){}
            const foundIndex = this.veges.findIndex(item1=>item1.id===id);
           },
           catchError(this.errorHandler))
-    
-    
         );
-    
-    
-    
-    
-    
       }
       getVegetableById(id:number):Observable<IVegetable>{
         return this.getVegetables().pipe(
@@ -150,23 +124,14 @@ constructor(private http:HttpClient){}
     
         //logic to call http put method to update the item on the given url
         return this.http.put<IVegetable>(url,item, {headers}).pipe(
-    
-        tap(()=>{/* console.log('update item'+item.id);
+        tap(()=>{ console.log('update item'+item.id);
         const foundIndex =this.veges.findIndex(item1=>item1.id === item.id);
         if(foundIndex > -1){
           this.veges[foundIndex]=item;
-            } */
+            } 
         }),
         map(()=>item),
         catchError(this.errorHandler)
         );
-    
-    
-    
-    
-    
-    
        }
-    
-
 } 

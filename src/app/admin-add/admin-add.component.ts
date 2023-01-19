@@ -19,7 +19,7 @@ import { State } from '../state/app.state';
 })
 export class AdminAddComponent implements OnInit,OnDestroy{
   // item!:IVegetable | null | undefined;
-
+title:string="admin"
   pageTitle='Edit Vegetable';
   errorMessage='';
  

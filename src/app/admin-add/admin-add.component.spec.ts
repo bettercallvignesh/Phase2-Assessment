@@ -1,6 +1,7 @@
 import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { By } from '@angular/platform-browser';
 import { RouterTestingModule } from '@angular/router/testing';
 import { StoreModule } from '@ngrx/store';
@@ -28,10 +29,9 @@ describe('AdminAddComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-/*  it('should check price', () => {
- 
-    const el=fixture.debugElement.query(By.css('#price'));
-    expect(el.nativeElement.getAttribute('type')).toEqual('number');
-  });  */
-  
+  it(`should have as title 'adminadd`, () => {
+    const fixture = TestBed.createComponent(AdminAddComponent);
+    const app = fixture.componentInstance;
+    expect(app.title).toEqual('admin');
+  });
 });

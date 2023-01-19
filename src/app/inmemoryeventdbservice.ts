@@ -79,14 +79,9 @@ export class InMemoryEventDbService implements InMemoryDbService{
             "category":"starchy",
             "imageUrl":"../assets/images/sweatpotato.jpg",
            "price":66,
-           "quantity":4
-           
-          
+           "quantity":4            
         }];
-
-
         return {veges};
-    }
-    
+    }   
 }
 

@@ -1,8 +1,5 @@
-import { HttpHeaders } from "@angular/common/http";
-import { Injectable } from "@angular/core";
-import { Observable, tap } from "rxjs";
-import { IVegetable } from "../veges-list/veges";
 
+import { Injectable } from "@angular/core";
 @Injectable({
     providedIn:'root'
 })

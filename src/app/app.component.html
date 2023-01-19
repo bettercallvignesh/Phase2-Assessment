@@ -2,23 +2,17 @@
     <greeting></greeting>
      <button (click)="greet()">Click here</button>
      <div class="container-fluid">
- 
- 
          <a class="navbar-brand">{{pageTitle}}</a>
         <ul class="navbar-nav mr-auto">
           <li class="nav-item" routerLinkActive="active">
              <a routerLink="/app-about-us" class="nav-link">Aboutus</a>
          </li> 
- 
          <li class="nav-item" routerLinkActive="active">
              <a routerLink="/app-contact" class="nav-link">Contact</a>
          </li> 
          <li class="nav-item" routerLinkActive="active">
           <a routerLink="/veges" class="nav-link">veges</a>
       </li> 
-      <!-- <li class="nav-item" routerLinkActive="active">
-        <a routerLink="/veges" class="nav-link">veges</a>
-    </li>  -->
      </ul> 
    <ul class="navbar-nav navbar-right">
      <li class="nav-item"
@@ -32,23 +26,7 @@
      <a class="nav-link" (click)="logOut()" style="cursor:pointer;">LogOut</a>
      </li>
    </ul>
- 
- 
- 
      </div>
- 
- 
- 
- 
  </nav>
-
-
-<!--  <li class="nav-item">
-    <a class="nav-link" [routerLink]="['veges']" [routerLinkActive]="['active']">veges-list</a>
-  </li> -->
- <!-- <li class="nav-item">
-    <a class="nav-link" [routerLink]="['/welcome']" [routerLinkActive]="['active']">welcome</a>
- </li>  -->
-  <!-- <app-contact></app-contact>  -->
     <app-veges-shell></app-veges-shell>  
  <router-outlet></router-outlet>

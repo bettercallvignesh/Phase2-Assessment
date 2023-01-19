@@ -62,14 +62,7 @@ afterEach(() => {
   it('should getAllVegetables',
     inject([HttpTestingController,VegetableService],
       (httpMock:HttpTestingController,service:VegetableService)=>{
-
-
-    
-
-
       service.getVegetables().subscribe(resp=>expect(veges).toEqual(resp));
-
-
       const mockReq = httpMock.expectOne(service.url);
 
       expect(mockReq.cancelled).toBeFalsy();
@@ -136,4 +129,50 @@ it('createVegetable() should post a vegetable and    return that new vegetable  
      req.flush(item);
 
      });
+     it('updateVegetable () should update a vegetable',()=>{ 
+      const item2:IVegetable ={
+
+        id:101,
+        name:"spinach",
+        category:"dark-green",
+        imageUrl:"../assets/images/Spinach-darkgreen.jpg",
+       price:40,
+       quantity:4
+ 
+     };
+      service.updateVegetable(item2).subscribe(resp=>expect(resp).toEqual(item2) )
+      const req = httpMock.expectOne(`${service.url}/${item2.id}`);
+     expect(req.request.method).toBe('PUT');
+      req.flush({item2 });
+    })
+    it('should check the deleteVegetable() method',()=>{   
+       const item:IVegetable={
+
+      id:101,
+      name:"spinach",
+      category:"dark-green",
+      imageUrl:"../assets/images/Spinach-darkgreen.jpg",
+     price:40,
+     quantity:4
+    };
+
+
+  const item2:IVegetable ={
+
+      id:103,
+      name:"spinach",
+      category:"dark-green",
+      imageUrl:"../assets/images/Spinach-darkgreen.jpg",
+     price:40,
+     quantity:4
+
+
+   };
+       veges=[...veges,item,item2];
+        service.deleteVegetable(item2.id).subscribe(resp=>console.log(resp));
+         expect(veges.length).toEqual(5);
+          const req = httpMock.expectOne(`${service.url}/${item2.id}`);
+      expect(req.request.method).toBe('DELETE');
+       req.flush(item2);
+       });
 })

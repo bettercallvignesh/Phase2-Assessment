@@ -1,10 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Store } from '@ngrx/store';
-import { State } from '../state/vegetable/vegetable.state';
 import { AuthService } from './auth.service';
-import * as VegetableActions from '../state/vegetable/vegetable.actions';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -33,9 +30,6 @@ pageTitle:string='Log In';
       else{
         this.router.navigate(['admin']);
       }
-
-
-
     }
 
   }

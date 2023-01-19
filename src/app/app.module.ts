@@ -38,10 +38,8 @@ import { MatFormField } from '@angular/material/form-field';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    
+    AppComponent, 
    LoginComponent,
-   
     // VegesListComponent,
     // VegesAddComponent,
     VegesShellComponent,
@@ -62,7 +60,6 @@ import { MatFormField } from '@angular/material/form-field';
     RouterModule,
    AppRoutingModule,
    MaterialModule,
-  
    BrowserAnimationsModule,
     BrowserModule,
     ReactiveFormsModule,
@@ -74,10 +71,6 @@ import { MatFormField } from '@angular/material/form-field';
     HttpClientInMemoryWebApiModule.forRoot(InMemoryEventDbService),
   ],
   providers: [],
-  bootstrap: [AppComponent],
-/*   schemas: [
-    CUSTOM_ELEMENTS_SCHEMA,NO_ERRORS_SCHEMA
-  ]
- */
+  bootstrap: [AppComponent]
 })
 export class AppModule { }

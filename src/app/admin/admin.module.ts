@@ -10,11 +10,12 @@ import { VegetableEffects } from '../state/vegetable/vegetable.effects';
 import { vegetableReducer } from '../state/vegetable/vegetable.reducer';
 import { AdminShellComponent } from '../admin-shell/admin-shell.component';
 
-
-
 @NgModule({
   declarations: [
-  AdminAddComponent,AdminComponent,AdminShellComponent,AdminShellComponent
+  AdminAddComponent,
+  AdminComponent,
+  AdminShellComponent,
+  AdminShellComponent
 
 ],
   imports: [

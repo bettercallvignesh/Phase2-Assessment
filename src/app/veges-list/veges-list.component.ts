@@ -73,15 +73,5 @@ export class VegesListComponent implements OnInit{
     console.log(this.filterCategory);
      this.store.dispatch(VegetableActions.filterVegetablesSuccess({veges:this.filterCategory}));
   }
-
-/*   Quantity(value:string){
-    if(this.itemquantity < 9 && value=="max"){
-      this.itemquantity +=1;
-    }else if(this.itemquantity>1 && value=="min"){
-      this.itemquantity -=1;
-    }
-          }
-        */
-
 }
 
